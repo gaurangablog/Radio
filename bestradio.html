@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Live Radio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0f172a"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel='manifest' href='data:application/manifest+json;base64,ewoKICAibmFtZSI6ICJNeSBSYWRpbyIsCgogICJzaG9ydF9uYW1lIjogIlJhZGlvIiwKCiAgInN0YXJ0X3VybCI6ICIvP3V0bV9zb3VyY2U9cHdhIiwKCiAgImRpc3BsYXkiOiAiZnVsbHNjcmVlbiIsCgogICJiYWNrZ3JvdW5kX2NvbG9yIjogIiNmZmZmZmYiLCgogICJ0aGVbWVfY29sb3IiOiAiI2ZmZmZmZiIsCgogICJpY29ucyI6IFsKCiAgICB7CgogICAgICAic3JjIjogImh0dHBzOi8vaS5pYmIuY28vcEJoSEYxOG4vcG5nd2luZy1jb20tNi5wbmciLCgogICAgICAic2l6ZXMiOiAiMTk2eDE5MiIsCgogICAgICAidHlwZSI6ICJpbWFnZS9wbmcKCiAgICB9LAoKICAgIHsKCiAgICAgICJzcmMiOiAiaHR0cHM6Ly9pLmliYi5jby9wQmhIRjE4bi9wbmd3aW5nLWNvbS02LnBuZyIsCgogICAgICAic2l6ZXMiOiAiNTEyeDUxMiIsCgogICAgICAidHlwZSI6ICJpbWFnZS9wbmcKCiAgICB9CgogIF0KCn0='/>
+<link rel="manifest" href="manifest.json">
+   <link rel='manifest' href='data:application/manifest+json;base64,ICB7CiAgICAic2hvcnRfbmFtZSI6ICJUaWlueSBBcHAiLAogICAgIm5hbWUiOiAiTXkgVGlpbnkgSG9zdCBBcHBsaWNhdGlvbiIsCiAgICAiaWNvbnMiOiBbCiAgICB7CiAgICAic3JjIjogImh0dHBzOi8vaS5pYmIuY28vcEJoSEYxOG4vcG5nd2luZy1jb20tNi5wbmciLAogICAgInR5cGUiOiAiaW1hZ2UvcG5nIiwKICAgICJzaXplcyI6ICIxOTJ4MTkyIgogICAgfSwKICAgIHsKICAgICJzcmMiOiAiaHR0cHM6Ly9pLmliYi5jby9wQmhIRjE4bi9wbmd3aW5nLWNvbS02LnBuZyIsCiAgICAidHlwZSI6ICJpbWFnZS9wbmciLAogICAgInNpemVzIjogIjUxMng1MTIiCiAgICB9CiAgICBdLAogICAgInN0YXJ0X3VybCI6ICIvIiwKICAgICJiYWNrZ3JvdW5kX2NvbG9yIjogIiNmZmZmZmYiLAogICAgInRoZW1lX2NvbG9yIjogIiMwMDcwZjMiLAogICAgImRpc3BsYXkiOiAiZnVsbHNjcmVlbiIsCiAgICAib3JpZW50YXRpb24iOiAicG9ydHJhaXQiCiAgICB9'/>
+ 
+<link href='https://i.ibb.co/pBhHF18n/pngwing-com-6.png' rel='icon' type='image/x-icon'/>
+<link href='https://i.ibb.co/pBhHF18n/pngwing-com-6.png' rel='shortcut icon' type='image/x-icon'/>
+</head>
+<body>
+
+<div class="player-container">
+  <div class="now-playing">
+    <div class="album-art-glow">
+      <div class="album-art"></div>
+    </div>
+    <h2 id="track-title">Love Radio</h2>
+    <p id="track-status">Ready</p>
+  </div>
+
+  <audio id="audio-player" controls>
+    Your browser does not support the audio element.
+  </audio>
+
+  <div class="sleep-timer-container">
+    <span class="timer-label">⏱️ Sleep Timer</span>
+    <select id="sleep-timer">
+      <option value="0">Off</option>
+      <option value="15">15 Mins</option>
+      <option value="30">30 Mins</option>
+      <option value="45">45 Mins</option>
+      <option value="60">1 Hour</option>
+      <option value="90">1.5 Hours</option>
+      <option value="120">2 Hours</option>
+      <option value="180">3 Hours</option>
+    </select>
+  </div>
+
+  <div class="scrr">
+    <ul class="playlist" id="playlist">
+      <li class="track active" data-src="https://airhlspush.pc.cdn.bitgravity.com/httppush/hlspbaudio004/hlspbaudio00464kbps.m3u8" data-type="live">
+        <span>AIR FM Rainbow Delhi</span>
+        <span class="badge">LIVE</span>
+      </li>
+      <li class="track" data-src="https://air.pc.cdn.bitgravity.com/air/live/pbaudio133/playlist.m3u8" data-type="vod">
+        <span>Akashvani Guwahati</span>
+      </li>
+      <li class="track" data-src="https://mars.streamerr.co/8154/stream" data-type="vod">
+        <span>Radio Aashiqana</span>
+      </li>
+      <li class="track" data-src="https://internetradio.gupshupradio.com:8080/?type=mp3" data-type="vod">
+        <span>Gupshup Radio</span>
+      </li>
+      <li class="track" data-src="https://stream.zeno.fm/dbstwo3dvhhtv" data-type="vod">
+        <span>FM Assamise</span>
+      </li>
+      <li class="track" data-src="https://a1.asurahosting.com/listen/techno_with_friends_/Fmradio.Mp3" data-type="vod">
+        <span>Tecno With Frinds</span>
+      </li>
+      <li class="track" data-src="https://drive.uber.radio/uber/bollywoodlove/icecast.audio" data-type="vod">
+        <span>Ishq Love Radio</span>
+      </li>
+      <li class="track" data-src="https://streams.bmgdigital.in/hls/live-cricket/index.m3u8" data-type="vod">
+        <span>Hindi Cricket Live</span>
+      </li>
+      <li class="track" data-src="https://airhlspush.pc.cdn.bitgravity.com/httppush/hlspbaudio245/hlspbaudio24564kbps.m3u8" data-type="vod">
+        <span>Kolkata Bengali</span>
+      </li>
+      <li class="track" data-src="https://stream.zeno.fm/1rkrpc4d0k8uv" data-type="vod">
+        <span>All time Ghazal</span>
+      </li>
+      <li class="track" data-src="https://stream.zeno.fm/yo0kzyzedittv" data-type="vod">
+        <span>Sleping Ghazals</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<style type="text/css">
+:root {
+  --primary-color: #6366f1;
+  --accent-color: #f43f5e;
+  --bg-gradient: linear-gradient(135deg, #090e1a 0%, #111827 50%, #1e1b4b 100%);
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --text-main: #f8fafc;
+  --text-sub: #94a3b8;
+}
+
+/* --- Chrome, Edge, and Safari Scrollbars --- */
+*::-webkit-scrollbar {
+  width: 0px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background:transparent;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background:transparent;
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: transparent;
+}
+
+body {
+  background: var(--bg-gradient);
+  color: var(--text-main);
+  background-attachment: fixed;
+  font-family: 'Outfit', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+.player-container {
+  width: 100%;
+  max-width: 420px;
+  background: var(--card-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--card-border);
+  border-radius: 11px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  padding: 28px;
+  color: var(--text-main);
+}
+
+.now-playing { 
+  text-align: center; 
+  margin-bottom: 24px; 
+}
+
+.album-art-glow {
+  position: relative;
+  width: 94px;
+  height: 94px;
+  margin: 0 auto 18px auto;
+  border-radius: 24px;
+  background:url("https://i.ibb.co/HfXhm3pV/20251124-202844.jpg");background-size:cover;
+ background-position:right;display: flex;
+  justify-content: center;
+  align-items: center;border:0.9px solid #eee;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+}
+
+.album-art {
+  font-size: 36px;
+}
+
+.now-playing h2 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+
+.now-playing p {
+  font-size: 0.85rem;
+  color: var(--text-sub);
+  font-weight: 400;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+audio { 
+  width: 100%; display:none;
+  margin-bottom: 20px; 
+  outline: none;
+  border-radius: 50px;
+  height: 44px;
+  /* Adjusts the native media controllers UI on supported browsers */
+  color-scheme:dark;
+}
+
+.sleep-timer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.timer-label {
+  color: var(--text-sub);
+}
+
+#sleep-timer {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 6px 12px;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.85rem;
+}
+
+.scrr {
+  height: 380px;
+  overflow-y: auto;
+  border-radius: 16px;
+}
+
+.playlist { 
+  list-style: none; 
+  padding: 0; 
+  margin: 0;
+  max-height: 100%; 
+}
+
+.track {
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
+  border-radius: 12px;
+  margin-bottom: 4px;
+  font-size: 0.92rem;
+}
+
+.track:hover { 
+  background: rgba(255, 255, 255, 0.03); 
+}
+
+.track span {
+  color: #cbd5e1;
+}
+
+.track.active { 
+  background: rgba(99, 102, 241, 0.15);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+.track.active span {
+  color: #fff;
+  font-weight: 600;
+}
+
+.badge {
+  background: var(--accent-color);
+  font-size: 9px;
+  padding: 3px 6px;
+  border-radius: 6px;
+  font-weight: 700;
+  animation: pulse 1.5s infinite;
+  color: #fff;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+#tiiny-host-banner,
+.tiiny-host-banner,
+div[style*="z-index: 2147483647"],
+div[style*="position: fixed"] {
+    display: none !important;
+}
+</style>
+
+<script type="text/javascript">
+const player = document.getElementById('audio-player');
+const playlistItems = document.querySelectorAll('.track');
+const trackTitle = document.getElementById('track-title');
+const trackStatus = document.getElementById('track-status');
+const sleepTimerSelect = document.getElementById('sleep-timer');
+let sleepTimeout = null;
+
+playlistItems.forEach(item => {
+  item.addEventListener('click', () => {
+    playlistItems.forEach(i => i.classList.remove('active'));
+    item.classList.add('active');
+
+    const streamUrl = item.getAttribute('data-src');
+    const isLive = item.getAttribute('data-type') === 'live';
+    
+    player.src = streamUrl;
+    trackTitle.innerText = item.querySelector('span').innerText;
+    trackStatus.innerText = isLive ? "Streaming Live..." : "Playing Track";
+
+    player.play();
+  });
+});
+
+// Sleep Timer Logic
+sleepTimerSelect.addEventListener('change', (e) => {
+  const minutes = parseInt(e.target.value);
+
+  if (sleepTimeout) {
+    clearTimeout(sleepTimeout);
+    sleepTimeout = null;
+  }
+
+  if (minutes > 0) {
+    const selectedText = sleepTimerSelect.options[sleepTimerSelect.selectedIndex].text;
+    trackStatus.innerText = `Sleep timer set for ${selectedText}`;
+    
+    sleepTimeout = setTimeout(() => {
+      player.pause();
+      trackStatus.innerText = "Music stopped (Sleep Timer)";
+      sleepTimerSelect.value = "0";
+    }, minutes * 60 * 1000);
+  } else {
+    trackStatus.innerText = "Playing Track";
+  }
+});
+
+// Error handling for dead streams
+player.onerror = () => {
+  trackStatus.innerText = "Error: Stream Unavailable";
+  trackStatus.style.color = "#f43f5e";
+};
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const elementsToRemove = document.querySelectorAll(
+            '#tiiny-host-banner, .tiiny-host-banner, div[style*="z-index: 2147483647"]'
+        );
+        elementsToRemove.forEach(function(element) {
+            if (element) {
+                element.remove();
+            }
+        });
+    });
+</script>
+<script>
+        let deferredPrompt;
+
+        // 1. Register Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js')
+                    .then((reg) => console.log('Service worker registered.', reg))
+                    .catch((err) => console.log('Service worker registration failed.', err));
+            });
+        }
+
+        // 2. Capture the install prompt event
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // Prevent the mini-infobar from appearing on mobile
+            e.preventDefault();
+            // Stash the event so it can be triggered later
+            deferredPrompt = e;
+            // Show the install button
+            const installButton = document.getElementById('install-button');
+            installButton.style.display = 'inline-block';
+
+            installButton.addEventListener('click', () => {
+                // Show the prompt
+                deferredPrompt.prompt();
+                // Wait for the user to respond to the prompt
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('User accepted the install prompt');
+                    }
+                    deferredPrompt = null;
+                });
+            });
+        });
+
+        // 3. Hide button after installation is complete
+        window.addEventListener('appinstalled', (evt) => {
+            console.log('PWA was successfully installed');
+            document.getElementById('install-button').style.display = 'none';
+        });
+    </script>
+    <script type="text/javascript">
+    self.addEventListener('install', (e) => {
+    e.waitUntil(
+    caches.open('pwa-store').then((cache) => {
+    return cache.addAll(['/', '/index.html']);
+    })
+    );
+    });
+    
+    self.addEventListener('fetch', (e) => {
+    e.respondWith(
+    caches.match(e.request).then((response) => {
+    return response || fetch(e.request);
+    })
+    );
+    });
+    
+    </script>
+    
+  
+</body>
+</html>
